@@ -23,7 +23,7 @@ RSpec.describe LtlAssigner, "#calculate_distributions" do
         expect(truck_fill_volume).to be <= truck_capacity
         # Not sure what's reasonable... let's see if we can acheive 90% fill rate
         expect(truck_fill_volume.fdiv(truck_capacity)).to be >= 0.75
-        puts "truck: #{truck["id"]}, capacity: #{truck_capacity}, filled: #{truck_fill_volume}"
+        # puts "truck: #{truck["id"]}, capacity: #{truck_capacity}, filled: #{truck_fill_volume}"
       end
       # ap result
     end
