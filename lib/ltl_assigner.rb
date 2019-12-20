@@ -7,7 +7,7 @@ class LtlAssigner
   end
 
   def distributions
-    return []
+    return trucks.map{|t| {"truck_id" => t["id"], "shipments" => []}}
   end
 
   def total_shipping_capacity
