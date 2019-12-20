@@ -1,7 +1,6 @@
 require 'spec_helper'
 require 'yaml'
-
-require File.expand_path('../../../lib/ltl_assigner', __FILE__)
+require 'ltl_assigner'
 
 RSpec.describe LtlAssigner, "#calculate_distributions" do
   before(:each) do
