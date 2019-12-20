@@ -30,5 +30,6 @@ rspec --format doc
 - I did do a cursory search when done and landed on some 'packing algorithms' that seemed to at least rudimentally confirm my point above (I kinda wanted to see what I could come up with before looking around), although I'm sure it can get pretty sophisticated.
 - Add a lot more tests and assertions at a more granular level... obviously more test scenarios as well.
   - Test the `find_shipment_that_fits` method directly since it's the core of the operation.
+  - Really should have an assertion in there that shipments don't appear in more than one truck.
 - Obviously, using real classes Truck, Shipment and TruckDistrubution would be a lot better than passing hashes around.
 
