@@ -7,14 +7,13 @@ class LtlAssigner
   end
 
   def distributions
-    distro = trucks.map{|t| {"truck_id" => t["id"], "shipments" => []}}
-    ordered_trucks = trucks.sort_by{|t| t["capacity"]}.reverse
+    distro = trucks.map{|t| {"truck_id" => t["id"], "truck_capacity" => t["capacity"], "shipments" => []}}
+    ordered_trucks = distro.sort_by{|t| t["truck_capacity"]}.reverse
     available_shipments = shipments.sort_by{|s| s["capacity"]}.reverse.clone
     ordered_trucks.each do |truck|
-      available_truck_capacity = truck["capacity"]
-      truck_distro = distro.find{|d| d["truck_id"] == truck["id"]}
+      available_truck_capacity = truck["truck_capacity"]
       while shipment = find_shipment_that_fits(available_truck_capacity, available_shipments)
-        truck_distro["shipments"] << shipment
+        truck["shipments"] << shipment
         available_truck_capacity -= shipment["capacity"]
         available_shipments.delete(shipment)
       end

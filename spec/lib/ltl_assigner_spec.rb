@@ -1,6 +1,7 @@
 require 'spec_helper'
-require 'yaml'
 require 'ltl_assigner'
+require 'yaml'
+require 'awesome_print'
 
 RSpec.describe LtlAssigner, "#calculate_distributions" do
   before(:each) do
@@ -24,6 +25,7 @@ RSpec.describe LtlAssigner, "#calculate_distributions" do
         expect(truck_fill_volume.fdiv(truck_capacity)).to be >= 0.75
         puts "truck: #{truck["id"]}, capacity: #{truck_capacity}, filled: #{truck_fill_volume}"
       end
+      ap result
     end
 
     it "can get total shipping capcity" do
