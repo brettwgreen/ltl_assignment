@@ -25,7 +25,7 @@ RSpec.describe LtlAssigner, "#calculate_distributions" do
         expect(truck_fill_volume.fdiv(truck_capacity)).to be >= 0.75
         puts "truck: #{truck["id"]}, capacity: #{truck_capacity}, filled: #{truck_fill_volume}"
       end
-      ap result
+      # ap result
     end
 
     it "can get total shipping capcity" do
