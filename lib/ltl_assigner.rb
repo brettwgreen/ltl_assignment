@@ -13,4 +13,8 @@ class LtlAssigner
   def total_shipping_capacity
     trucks.map{|t| t["capacity"]}.reduce(:+)
   end
+
+  def total_shipping_volume
+    shipments.map{|t| t["capacity"]}.reduce(:+)
+  end
 end

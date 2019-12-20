@@ -18,5 +18,9 @@ RSpec.describe LtlAssigner, "#calculate_distributions" do
     it "can get total shipping capcity" do
       expect(@ltl_assigner.total_shipping_capacity).to eq 130000
     end
+
+    it "can get total shipping volume" do
+      expect(@ltl_assigner.total_shipping_volume).to eq 225700
+    end
   end
 end
