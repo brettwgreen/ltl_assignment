@@ -11,8 +11,19 @@ RSpec.describe LtlAssigner, "#calculate_distributions" do
   end
 
   context "given sample trucks and shipments" do
-    it "returns evenly distributed shipments" do
-      expect(@trucks.length).to eq 4
+    it "fits in all the shipments" do
+      result = @ltl_assigner.distributions
+      # all trucks accounted for, even if empty (perhaps all loads are too large for one truck)
+      expect(result.length).to eq 4
+      @ltl_assigner.trucks.each do |truck|
+        truck_result = result.find{|k, v| k["truck_id"] == truck["id"]}
+        truck_capacity = truck["capacity"]
+        truck_fill_volume = truck_result["shipments"].map{|tr| tr["capacity"]}.reduce(:+)
+        # don't overfill the truck
+        expect(truck_fill_volume).to be <= truck_capacity
+        # Not sure what's reasonable... let's see if we can acheive 90% fill rate
+        expect((truck_fill_volume/truck_capacity)/truck_capacity).to be <= 0.90
+      end
     end
 
     it "can get total shipping capcity" do

@@ -6,7 +6,7 @@ class LtlAssigner
     @shipments = shipments
   end
 
-  def calculate_distributions
+  def distributions
     return []
   end
 
