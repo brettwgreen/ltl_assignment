@@ -1,0 +1,37 @@
+
+shipment_001:
+  id: 001
+  capacity: 16000
+shipment_002:
+  id: 002
+  capacity: 42000
+shipment_003:
+  id: 003
+  capacity: 8000
+shipment_004:
+  id: 004
+  capacity: 12000
+shipment_005:
+  id: 005
+  capacity: 38000
+shipment_006:
+  id: 006
+  capacity: 1200
+shipment_007:
+  id: 007
+  capacity: 1000
+shipment_009:
+  id: 009
+  capacity: 18000
+shipment_010:
+  id: 010
+  capacity: 28000
+shipment_011:
+  id: 011
+  capacity: 7500
+shipment_012:
+  id: 012
+  capacity: 17000
+shipment_013:
+  id: 013
+  capacity: 37000

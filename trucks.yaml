@@ -1,0 +1,12 @@
+truck_001:
+  id: 001
+  capacity: 44000
+truck_002:
+  id: 002
+  capacity: 42000
+truck_003:
+  id: 003
+  capacity: 20000
+truck_004:
+  id: 004
+  capacity: 24000
