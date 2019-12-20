@@ -1,7 +1,11 @@
 ## Truck shipping distribution code challenge (ltl_assignment)
 
 ### Setup and Run:
+Ruby 2.6.5
 
+I use rvm... so `rvm install 2.6.5` if you don't already have it
+
+Then simply:
 ```
 bundle install
 rspec --format doc
