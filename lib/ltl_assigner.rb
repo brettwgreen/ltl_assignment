@@ -1,9 +1,10 @@
 class LtlAssigner
-  attr_accessor :trucks, :shipments
+  attr_accessor :trucks, :shipments, :strategy
 
-  def initialize(trucks, shipments)
+  def initialize(trucks, shipments, strategy)
     @trucks = trucks
     @shipments = shipments
+    @strategy = strategy
   end
 
   def distributions
@@ -12,7 +13,7 @@ class LtlAssigner
     available_shipments = shipments.sort_by{|s| s["capacity"]}.reverse.clone
     ordered_trucks.each do |truck|
       available_truck_capacity = truck["truck_capacity"]
-      while shipment = find_shipment_that_fits(available_truck_capacity, available_shipments)
+      while shipment = strategy.find_shipment_that_fits(available_truck_capacity, available_shipments)
         truck["shipments"] << shipment
         available_truck_capacity -= shipment["capacity"]
         available_shipments.delete(shipment)
@@ -29,11 +30,4 @@ class LtlAssigner
     shipments.map{|t| t["capacity"]}.reduce(:+)
   end
 
-  private
-  def find_shipment_that_fits(available_truck_capacity, available_shipments)
-    available_shipments.each do |s|
-      s["fitness"] = (available_truck_capacity - s["capacity"])
-    end
-    available_shipments.select{|s| s["fitness"] >= 0}.sort_by{|s| s["fitness"] }.first
-  end
 end
