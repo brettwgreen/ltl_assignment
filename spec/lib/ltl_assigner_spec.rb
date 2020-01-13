@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'ltl_assigner'
+require 'ltl_strategy'
 require 'yaml'
 require 'awesome_print'
 
@@ -7,7 +8,7 @@ RSpec.describe LtlAssigner, "#calculate_distributions" do
   before(:each) do
     @trucks = YAML.load_file("trucks.yaml").collect{|_k, v| v}
     @shipments = YAML.load_file("shipments.yaml").collect{|_k, v| v}
-    @ltl_assigner = LtlAssigner.new(@trucks, @shipments)
+    @ltl_assigner = LtlAssigner.new(@trucks, @shipments, LtlStrategy::TightestFit)
   end
 
   context "given sample trucks and shipments" do
